@@ -6,3 +6,4 @@ def search_answer(query, documents):
         if query in doc.lower():
             return doc
     return "Non ho trovato niente di utile."
+
