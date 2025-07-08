@@ -1,10 +1,10 @@
 from chatbot.retrieval import search_answer
-from chatbot.preprocessing import preprocess_documents
+from chatbot.preprocessing import preprocess_documents, clean_text, expand_query
 
 
 def main():
     # Carica e prepara i documenti
-    docs = preprocess_documents('data/')
+    docs = preprocess_documents('docs/')
 
     # Esempio query
     query = input("Fai una domanda: ")
@@ -17,4 +17,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-#commento di prova
