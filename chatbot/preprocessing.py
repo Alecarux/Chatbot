@@ -1,20 +1,26 @@
-import os
 import re
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+import nltk
 
-def clean_text(text):
-    text = text.lower()
-    text = re.sub(r'\W+', ' ', text)  # rimuove punteggiatura
-    return text.strip()
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 
-def preprocess_documents(folder):
-    docs = []
-    for filename in os.listdir(folder):
-        if filename.endswith('.txt'):
-            path = os.path.join(folder, filename)
-            with open(path, 'r', encoding='utf-8') as f:
-                text = f.read()
-                docs.append(clean_text(text))
-    return docs
+class TextPreprocessor:
+    def __init__(self):
+        self.lemmatizer = WordNetLemmatizer()
+        self.stop_words = set(stopwords.words('italian'))
 
-def expand_query(query):
-    return query
+    def clean_text(self, text: str) -> str:
+        text = text.lower()
+        text = re.sub(r'[^a-zàèéìòù\s]', '', text)
+        return text
+
+    def full_preprocess(self, text: str) -> str:
+        text = self.clean_text(text)
+        tokens = [
+            self.lemmatizer.lemmatize(word)
+            for word in text.split()
+            if word not in self.stop_words and len(word) > 2
+        ]
+        return ' '.join(tokens)
