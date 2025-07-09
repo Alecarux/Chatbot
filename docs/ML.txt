@@ -1,0 +1,7 @@
+Il Machine Learning è una branca dell'intelligenza artificiale che permette ai computer di apprendere dai dati. Invece di essere esplicitamente programmati, gli algoritmi imparano a riconoscere pattern e fare previsioni. Questo approccio si basa su metodi statistici e modelli matematici.
+
+Esistono tre categorie principali di machine learning: supervisionato, non supervisionato e per rinforzo. Nel primo caso, il modello viene addestrato su dati etichettati; nel secondo, cerca da solo schemi nei dati; nel terzo, apprende tramite interazione con un ambiente e riceve ricompense o penalità.
+
+Un’applicazione comune è il riconoscimento vocale, dove il sistema impara a convertire il parlato in testo. Altri esempi includono la diagnosi medica automatica, il filtraggio delle email e la guida autonoma. Le prestazioni dipendono dalla quantità e qualità dei dati a disposizione.
+
+Modelli moderni come le reti neurali profonde richiedono grandi quantità di dati e potenza di calcolo, ma esistono soluzioni più leggere adatte anche a dispositivi meno potenti. Tra queste ci sono modelli come logistic regression o alberi decisionali.

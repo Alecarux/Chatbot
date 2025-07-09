@@ -1,0 +1,1 @@
+Internet è una rete globale di computer che comunicano tra loro utilizzando il protocollo TCP/IP. Ogni dispositivo collegato ha un indirizzo IP. I dati vengono trasmessi in pacchetti, che viaggiano attraverso router e switch fino a destinazione. Il World Wide Web è uno dei servizi più noti offerti da Internet.
