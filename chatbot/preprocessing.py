@@ -1,12 +1,26 @@
-def preprocess_documents(data_path):
-    # Per ora solo carica i file come testo semplice in una lista
-    import os
-    docs = []
-    for filename in os.listdir(data_path):
-        with open(os.path.join(data_path, filename), 'r', encoding='utf-8') as f:
-            docs.append(f.read())
-    return docs
+import re
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
+import nltk
 
-# chatbot/preprocessing.py
+nltk.download('stopwords', quiet=True)
+nltk.download('wordnet', quiet=True)
 
-# bisogna definire clean_text
+class TextPreprocessor:
+    def __init__(self):
+        self.lemmatizer = WordNetLemmatizer()
+        self.stop_words = set(stopwords.words('italian'))
+
+    def clean_text(self, text: str) -> str:
+        text = text.lower()
+        text = re.sub(r'[^a-zàèéìòù\s]', '', text)
+        return text
+
+    def full_preprocess(self, text: str) -> str:
+        text = self.clean_text(text)
+        tokens = [
+            self.lemmatizer.lemmatize(word)
+            for word in text.split()
+            if word not in self.stop_words and len(word) > 2
+        ]
+        return ' '.join(tokens)
